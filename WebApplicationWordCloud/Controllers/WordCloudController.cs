@@ -19,6 +19,10 @@ namespace WebApplicationWordCloud.Controllers
                 new Word("Greece"),
                 new Word("Denmark"),
                 new Word("Japan"),
+                new Word("Japan"),
+                new Word("Greece"),
+                new Word("Japan"),
+                new Word("Sweden"),
             };
 
 
@@ -52,9 +56,11 @@ namespace WebApplicationWordCloud.Controllers
 
         // POST: api/WordCloud
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ActionResult<Word> Post([FromBody] Word word)
         {
-            myWordList.Add(new Word(value));
+
+            myWordList.Add(new Word(word.MyWord));
+            return word;
         }
 
     }
